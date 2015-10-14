@@ -2,7 +2,7 @@ package com.gobelinscrm14.noemiediaz.backstage.home;
 
 
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
