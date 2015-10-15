@@ -10,4 +10,5 @@
     <dimen name="logoMarginTop">10dp</dimen>
     <dimen name="logoMarginBottom">300dp</dimen>
     <dimen name="editTxtWidth">300dp</dimen>
+    <dimen name="marginLeftTxtView">100dp</dimen>
 </resources>

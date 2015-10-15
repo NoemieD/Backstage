@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.firebase.client.Firebase;
 import com.gobelinscrm14.noemiediaz.backstage.R;
+import com.gobelinscrm14.noemiediaz.backstage.User;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -55,12 +57,14 @@ public class RegisterFragment extends Fragment {
     }
 
     public interface RegisterListener{
-        void onRegisterClicked(CharSequence registerEmail, CharSequence registerPassword);
+        void onRegisterClicked(User user);
     }
 
     @OnClick(R.id.registerButton)
     public void onClick(View v){
-        mListener.onRegisterClicked(mRegisterEmail.getText(), mRegisterPassword.getText());
+       // mListener.onRegisterClicked(mRegisterEmail.getText(), mRegisterPassword.getText());
+        User user = new User(mRegisterPseudo.getText().toString(), mRegisterEmail.getText().toString(), mRegisterPassword.getText().toString());
+        mListener.onRegisterClicked(user);
     }
 
 

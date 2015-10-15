@@ -11,4 +11,5 @@
     <string name="hintPassword">Password</string>
     <string name="hintPseudo">Pseudo</string>
     <string name="txtLoginButton">Login</string>
+    <string name="txtTextViewPseudo">Your Pseudo</string>
 </resources>

@@ -3,7 +3,6 @@ package com.gobelinscrm14.noemiediaz.backstage;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-import com.gobelinscrm14.noemiediaz.backstage.home.user.User;
 
 import java.util.Map;
 
@@ -32,11 +31,14 @@ public class Authentification {
         this.user = user;
     }
 
-    public void createUser(String email, String password, final FirebaseListener listener){
+    public void createUser(String pseudo, String email, String password, final FirebaseListener listener){
+
+        user = new User(pseudo,email,password);
 
         myFirebaseRef.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
             @Override
             public void onSuccess(Map<String, Object> stringObjectMap) {
+                pushUserInFirebase(stringObjectMap.get("uid").toString());
                 listener.onSucessRegister(stringObjectMap);
             }
 
@@ -63,6 +65,12 @@ public class Authentification {
                 listener.onErrorAuthentification(firebaseError);
             }
         });
+    }
+
+    public void pushUserInFirebase(String uid){
+        Firebase myFirebaseRef = new Firebase("https://backstagecrm14.firebaseio.com/");
+        Firebase userRef = myFirebaseRef.child("users").child(uid);
+        userRef.setValue(getUser());
     }
 
     public interface FirebaseListener {

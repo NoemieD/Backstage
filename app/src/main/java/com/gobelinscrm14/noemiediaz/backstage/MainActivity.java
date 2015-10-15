@@ -1,5 +1,6 @@
 package com.gobelinscrm14.noemiediaz.backstage;
 
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.gobelinscrm14.noemiediaz.backstage.chat.ChatActivity;
 import com.gobelinscrm14.noemiediaz.backstage.home.InitialHomeFragment;
 import com.gobelinscrm14.noemiediaz.backstage.home.user.LoginFragment;
 import com.gobelinscrm14.noemiediaz.backstage.home.user.RegisterFragment;
@@ -99,9 +102,9 @@ public class MainActivity extends AppCompatActivity implements InitialHomeFragme
     }
 
     @Override
-    public void onRegisterClicked(CharSequence registerEmail, CharSequence registerPassword) {
-        Log.d(TAG, registerEmail.toString() + " - " + registerPassword.toString());
-        Authentification.getInstance().createUser(registerEmail.toString(), registerPassword.toString(), this);
+    public void onRegisterClicked(User user) {
+        Log.d(TAG, user.getEmail() + "-" + user.getPseudo() + "-" + user.getPassword());
+        Authentification.getInstance().createUser(user.getPseudo(), user.getEmail(), user.getPassword(), this);
     }
 
     @Override
@@ -122,6 +125,9 @@ public class MainActivity extends AppCompatActivity implements InitialHomeFragme
     @Override
     public void onSucessAuthenticated(AuthData authData) {
         Log.d(TAG, "on success authenticated");
+        Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

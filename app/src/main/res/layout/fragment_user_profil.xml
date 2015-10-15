@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gobelinscrm14.noemiediaz.backstage.chat.user.UserProfilFragment">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Your Pseudo : "
+        android:id="@+id/userPseudoLabel"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/txtTextViewPseudo"
+        android:id="@+id/userPseudo"
+        android:layout_below="@+id/userPseudoLabel"
+        android:layout_marginLeft="@dimen/marginLeftTxtView"
+        android:layout_marginStart="@dimen/marginLeftTxtView"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Your Email"
+        android:id="@+id/userEmailLabel"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/userPseudo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Your Email"
+        android:id="@+id/userEmail"
+        android:layout_below="@+id/userEmailLabel"
+        android:layout_marginLeft="@dimen/marginLeftTxtView"
+        android:layout_marginStart="@dimen/marginLeftTxtView"/>
+
+</RelativeLayout>
