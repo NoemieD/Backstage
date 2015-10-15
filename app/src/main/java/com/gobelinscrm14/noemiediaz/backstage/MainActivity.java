@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements InitialHomeFragme
                 .beginTransaction()
                 .add(R.id.mainContent, new InitialHomeFragment())
                 .commit();
-
     }
 
     @Override
