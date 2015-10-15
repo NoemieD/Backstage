@@ -6,4 +6,9 @@
     <string name="txtButtonRegister">Register</string>
     <string name="txtButtonLogin">Login</string>
     <string name="texteIntroduction">Welcome on Backstage !!</string>
+    <string name="txtLogin">Login</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintPassword">Password</string>
+    <string name="hintPseudo">Pseudo</string>
+    <string name="txtLoginButton">Login</string>
 </resources>

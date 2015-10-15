@@ -55,7 +55,7 @@ public class RegisterFragment extends Fragment {
     }
 
     public interface RegisterListener{
-        void onRegisterClicked(CharSequence loginName, CharSequence passwordName);
+        void onRegisterClicked(CharSequence registerEmail, CharSequence registerPassword);
     }
 
     @OnClick(R.id.registerButton)

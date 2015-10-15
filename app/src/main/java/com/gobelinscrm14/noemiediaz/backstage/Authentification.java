@@ -1,5 +1,6 @@
 package com.gobelinscrm14.noemiediaz.backstage;
 
+import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.gobelinscrm14.noemiediaz.backstage.home.user.User;
@@ -41,7 +42,25 @@ public class Authentification {
 
             @Override
             public void onError(FirebaseError firebaseError) {
+                listener.onError(firebaseError);
+            }
+        });
+    }
 
+    public void authenticate(String email, String password, final FirebaseListener listener){
+
+        myFirebaseRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
+            @Override
+            public void onAuthenticated(AuthData authData) {
+
+                user = new User();
+                user.setEmail(authData.getProviderData().get("email").toString());
+                listener.onSucessAuthenticated(authData);
+            }
+
+            @Override
+            public void onAuthenticationError(FirebaseError firebaseError) {
+                listener.onErrorAuthentification(firebaseError);
             }
         });
     }
@@ -49,7 +68,8 @@ public class Authentification {
     public interface FirebaseListener {
         void onSucessRegister(Map<String, Object>  stringObjectMap);
         void onError(FirebaseError firebaseError);
-
+        void onSucessAuthenticated(AuthData authData);
+        void onErrorAuthentification(FirebaseError firebaseError);
     }
 
 

@@ -1,10 +1,13 @@
 package com.gobelinscrm14.noemiediaz.backstage;
 
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
+import com.firebase.client.AuthData;
 import com.firebase.client.FirebaseError;
 import com.gobelinscrm14.noemiediaz.backstage.home.InitialHomeFragment;
 import com.gobelinscrm14.noemiediaz.backstage.home.user.LoginFragment;
@@ -12,7 +15,7 @@ import com.gobelinscrm14.noemiediaz.backstage.home.user.RegisterFragment;
 
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements InitialHomeFragment.InitialHomeListener, RegisterFragment.RegisterListener,Authentification.FirebaseListener{
+public class MainActivity extends AppCompatActivity implements InitialHomeFragment.InitialHomeListener, RegisterFragment.RegisterListener, LoginFragment.LoginListener,Authentification.FirebaseListener{
 
     private static final String TAG = "mainActivity";
 
@@ -51,9 +54,9 @@ public class MainActivity extends AppCompatActivity implements InitialHomeFragme
     }
 
     @Override
-    public void onRegisterClicked(CharSequence loginEmail, CharSequence passwordName) {
-        Log.d(TAG, loginEmail.toString() + " - " + passwordName.toString());
-        Authentification.getInstance().createUser(loginEmail.toString(), passwordName.toString(), this);
+    public void onRegisterClicked(CharSequence registerEmail, CharSequence registerPassword) {
+        Log.d(TAG, registerEmail.toString() + " - " + registerPassword.toString());
+        Authentification.getInstance().createUser(registerEmail.toString(), registerPassword.toString(), this);
     }
 
     @Override
@@ -69,5 +72,29 @@ public class MainActivity extends AppCompatActivity implements InitialHomeFragme
     @Override
     public void onError(FirebaseError firebaseError) {
         Log.d(TAG, "on error register");
+    }
+
+    @Override
+    public void onSucessAuthenticated(AuthData authData) {
+        Log.d(TAG, "on success authenticated");
+    }
+
+    @Override
+    public void onErrorAuthentification(FirebaseError firebaseError) {
+        Snackbar.make(findViewById(R.id.mainContent), "It's not good !", Snackbar.LENGTH_LONG)
+                .setAction("Close", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d(TAG, "Close");
+                    }
+                })
+                .show();
+    }
+
+    @Override
+    public void onLoginClicked(CharSequence loginEmail, CharSequence loginPassword) {
+        Log.d(TAG, loginEmail.toString() + " - " + loginPassword.toString());
+        Authentification.getInstance().authenticate(loginEmail.toString(), loginPassword.toString(), this);
+
     }
 }

@@ -9,4 +9,5 @@
     <dimen name="buttonMarginLeft">20dp</dimen>
     <dimen name="logoMarginTop">10dp</dimen>
     <dimen name="logoMarginBottom">300dp</dimen>
+    <dimen name="editTxtWidth">300dp</dimen>
 </resources>
