@@ -25,7 +25,7 @@ public class InitialHomeFragment extends Fragment {
 
     private InitialHomeListener mListener;
 
-    @Bind(R.id.buttonRegister) Button buttonRegister;
+    @Bind(R.id.buttonChoiceRegister) Button buttonRegister;
 
     public InitialHomeFragment() {
         // Required empty public constructor
@@ -56,21 +56,19 @@ public class InitialHomeFragment extends Fragment {
     }
 
     public interface InitialHomeListener{
-        void onRegisterClicked();
-        void onLoginClicked();
+        void onRegisterChoiceClicked();
+        void onLoginChoiceClick();
     }
 
-
-    @OnClick(R.id.buttonRegister)
-    public void onRegisterClick(View v){
-        mListener.onRegisterClicked();
+    @OnClick(R.id.buttonChoiceRegister)
+    public void onRegisterChoiceClicked(View v){
+        mListener.onRegisterChoiceClicked();
     }
 
-    @OnClick(R.id.buttonLogin)
-    public void onLoginClick(View v){
-        mListener.onLoginClicked();
+    @OnClick(R.id.buttonChoiceLogin)
+    public void onLoginChoiceClick(View v){
+        mListener.onLoginChoiceClick();
     }
-
 
 
 }

@@ -28,7 +28,7 @@
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:text="@string/txtButtonRegister"
-        android:id="@+id/buttonRegister"
+        android:id="@+id/buttonChoiceRegister"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/buttonMarginLeft"
          />
@@ -37,7 +37,7 @@
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:text="@string/txtButtonLogin"
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonChoiceLogin"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/buttonMarginRight"
