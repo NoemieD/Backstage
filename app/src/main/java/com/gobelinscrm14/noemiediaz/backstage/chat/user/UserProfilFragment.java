@@ -42,8 +42,6 @@ public class UserProfilFragment extends Fragment {
         TextView emailDisplay = (TextView) view.findViewById(R.id.userEmail);
 
         User user = Authentification.getInstance().getUser();
-    
-
 
         pseudoDisplay.setText(user.getPseudo());
         emailDisplay.setText(user.getEmail());

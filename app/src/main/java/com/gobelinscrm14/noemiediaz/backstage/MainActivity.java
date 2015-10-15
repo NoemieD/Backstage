@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements InitialHomeFragme
     }
 
     @Override
-    public void onSucessAuthenticated(AuthData authData) {
+    public void onSucessAuthenticated() {
         Log.d(TAG, "on success authenticated");
         Intent intent = new Intent(MainActivity.this, ChatActivity.class);
         startActivity(intent);

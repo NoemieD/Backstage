@@ -1,8 +1,10 @@
 package com.gobelinscrm14.noemiediaz.backstage;
 
 import com.firebase.client.AuthData;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.Map;
 
@@ -54,10 +56,7 @@ public class Authentification {
         myFirebaseRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {
-
-                user = new User();
-                user.setEmail(authData.getProviderData().get("email").toString());
-                listener.onSucessAuthenticated(authData);
+                getUserByUid(authData.getUid(), listener);
             }
 
             @Override
@@ -67,8 +66,25 @@ public class Authentification {
         });
     }
 
+    public void getUserByUid(String uid, final FirebaseListener listener) {
+
+        Firebase userRef = myFirebaseRef.child("users").child(uid);
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                setUser(snapshot.getValue(User.class));
+                listener.onSucessAuthenticated();
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
+    }
+
     public void pushUserInFirebase(String uid){
-        Firebase myFirebaseRef = new Firebase("https://backstagecrm14.firebaseio.com/");
         Firebase userRef = myFirebaseRef.child("users").child(uid);
         userRef.setValue(getUser());
     }
@@ -76,7 +92,7 @@ public class Authentification {
     public interface FirebaseListener {
         void onSucessRegister(Map<String, Object>  stringObjectMap);
         void onError(FirebaseError firebaseError);
-        void onSucessAuthenticated(AuthData authData);
+        void onSucessAuthenticated();
         void onErrorAuthentification(FirebaseError firebaseError);
     }
 
