@@ -21,7 +21,8 @@ import butterknife.ButterKnife;
  */
 public class UserProfilFragment extends Fragment {
 
-    private static final Object TAG = "userProfilFragment";
+    private static final String TAG = "userProfilFragment";
+
     @Bind(R.id.userPseudo) TextView mUserPseudo;
     @Bind(R.id.userEmail) TextView mUserMail;
 
@@ -30,13 +31,14 @@ public class UserProfilFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user_profil, container, false);
         ButterKnife.bind(this, view);
+
+        Log.d(TAG, "CREATE");
 
         TextView pseudoDisplay = (TextView) view.findViewById(R.id.userPseudo);
         TextView emailDisplay = (TextView) view.findViewById(R.id.userEmail);

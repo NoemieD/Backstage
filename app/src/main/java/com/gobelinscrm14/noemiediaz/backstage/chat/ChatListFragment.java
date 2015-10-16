@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.ListFragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -33,8 +34,6 @@ public class ChatListFragment extends ListFragment {
     private static final String TAG = "chatListFragment";
     private static final String FIREBASE_URL = "https://backstagecrm14.firebaseio.com/";
 
-    //private ChartListListener mListener;
-
     private String mPseudo;
     private Firebase mFirebaseRef;
     private ValueEventListener mConnectedListener;
@@ -44,7 +43,6 @@ public class ChatListFragment extends ListFragment {
     public ChatListFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,22 +80,6 @@ public class ChatListFragment extends ListFragment {
 
         return view;
     }
-
-   /* @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        //context -> activity
-        try{
-            mListener = (ChartListListener) context;
-        } catch (ClassCastException exception){
-            throw new ClassCastException(context.toString()
-                    + "must implement LoginFragment.LoginListener");
-        }
-    }
-
-    public interface ChartListListener{
-
-    }*/
 
     private void setupPseudo() {
         User user = Authentification.getInstance().getUser();
