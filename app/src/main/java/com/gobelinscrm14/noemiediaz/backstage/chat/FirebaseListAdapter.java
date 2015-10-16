@@ -3,6 +3,8 @@ package com.gobelinscrm14.noemiediaz.backstage.chat;
 import android.app.Activity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.firebase.client.ChildEventListener;
@@ -119,4 +121,39 @@ public abstract class FirebaseListAdapter<T> extends BaseAdapter {
 
         });
     }
+
+    public void cleanup() {
+        // We're being destroyed, let go of our mListener and forget about all of the mModels
+        mRef.removeEventListener(mListener);
+        mModels.clear();
+        mKeys.clear();
+    }
+
+    @Override
+    public int getCount() {
+        return mModels.size();
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return mModels.get(i);
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        if (view == null) {
+            view = mInflater.inflate(mLayout, viewGroup, false);
+        }
+
+        T model = mModels.get(i);
+        // Call out to subclass to marshall this model into the provided view
+        populateView(view, model);
+        return view;
+    }
+    protected abstract void populateView(View v, T model);
 }
