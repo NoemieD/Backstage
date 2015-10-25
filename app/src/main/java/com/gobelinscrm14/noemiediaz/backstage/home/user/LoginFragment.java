@@ -23,6 +23,7 @@ public class LoginFragment extends Fragment {
 
     private LoginListener mListener;
     @Bind(R.id.loginEmail) TextView mLoginEmail;
+    @Bind(R.id.loginButton) TextView mLoginbutton;
     @Bind(R.id.loginPassword) TextView mLoginPassword;
 
     public LoginFragment() {
@@ -57,6 +58,7 @@ public class LoginFragment extends Fragment {
 
     @OnClick(R.id.loginButton)
     public void onClick(View v){
+        mLoginbutton.setEnabled(false);
         mListener.onLoginClicked(mLoginEmail.getText(), mLoginPassword.getText());
     }
 

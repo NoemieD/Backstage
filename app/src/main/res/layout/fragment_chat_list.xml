@@ -1,11 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.gobelinscrm14.noemiediaz.backstage.chat.ChatListFragment">
 
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/listFooter"
         android:layout_alignParentTop="true"
@@ -16,22 +20,32 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:weightSum="1">
 
         <EditText
             android:id="@+id/messageInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="289dp"
+            android:layout_height="match_parent"
             android:inputType="textShortMessage"
             android:lines="1"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:background="@color/colorPrimary"
+            android:layout_weight="1.14" />
 
-        <Button
+        <ImageButton
             android:id="@+id/sendButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Send" />
+            android:background="@color/colorPrimaryDark"
+            android:src="@android:drawable/ic_menu_send"
+            android:minHeight="50dp"
+            android:minWidth="50dp"
+            android:layout_above="@+id/listFooter"
+            android:layout_alignRight="@android:id/list"
+            android:layout_alignEnd="@android:id/list" />
+
     </LinearLayout>
 
 </RelativeLayout>

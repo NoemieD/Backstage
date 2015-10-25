@@ -3,17 +3,11 @@
     android:layout_height="match_parent"
     tools:context="com.gobelinscrm14.noemiediaz.backstage.home.user.RegisterFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:id="@+id/registerText"
-        android:layout_centerHorizontal="true" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal|top"
         >
@@ -22,6 +16,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/registerPseudo"
             android:hint="@string/hintPseudo"
+            android:color="@color/colorPrimaryDark"
             />
 
     </android.support.design.widget.TextInputLayout>
@@ -29,7 +24,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="150dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal|center"
         >
@@ -47,8 +42,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="220dp"
         android:layout_centerHorizontal="true">
 
         <EditText
@@ -67,7 +61,8 @@
         android:layout_height="@dimen/buttonHeight"
         android:text="Register"
         android:id="@+id/registerButton"
-        android:layout_gravity="center_horizontal|bottom"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimaryDark"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 

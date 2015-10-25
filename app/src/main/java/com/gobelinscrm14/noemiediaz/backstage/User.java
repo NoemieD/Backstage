@@ -1,13 +1,17 @@
 package com.gobelinscrm14.noemiediaz.backstage;
 
-/**
- * Created by noemiediaz on 15/10/15.
- */
+import android.graphics.Color;
+
+import java.util.Random;
+
 public class User {
 
     private String pseudo;
     private String email;
     private String password;
+
+    Random rnd = new Random();
+    private int color;
 
     public User(){}
 
@@ -15,6 +19,7 @@ public class User {
         this.email = email;
         this.pseudo = pseudo;
         this.password = password;
+        color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
     }
 
     public String getEmail() {
@@ -42,6 +47,7 @@ public class User {
         this.password = password;
     }
 
-
-
+    public int getColor() {
+        return color;
+    }
 }

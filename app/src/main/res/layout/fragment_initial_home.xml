@@ -15,20 +15,13 @@
         android:layout_marginTop="@dimen/logoMarginTop"
         android:layout_marginBottom="@dimen/logoMarginBottom" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/texteIntroduction"
-        android:id="@+id/textIntroduction"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/buttonHeight"
         android:text="@string/txtButtonRegister"
         android:id="@+id/buttonChoiceRegister"
+        android:background="@color/colorPrimaryDark"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/buttonMarginLeft"
          />
@@ -38,6 +31,7 @@
         android:layout_height="@dimen/buttonHeight"
         android:text="@string/txtButtonLogin"
         android:id="@+id/buttonChoiceLogin"
+        android:background="@color/colorPrimaryDark"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/buttonMarginRight"

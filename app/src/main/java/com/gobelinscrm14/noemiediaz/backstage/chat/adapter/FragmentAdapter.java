@@ -8,9 +8,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.gobelinscrm14.noemiediaz.backstage.chat.ChatListFragment;
 import com.gobelinscrm14.noemiediaz.backstage.chat.user.UserProfilFragment;
 
-/**
- * Created by noemiediaz on 16/10/15.
- */
 public class FragmentAdapter extends FragmentPagerAdapter {
 
     private static final int CHATLIST = 0;

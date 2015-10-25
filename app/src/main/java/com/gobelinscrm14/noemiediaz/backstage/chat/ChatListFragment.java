@@ -40,6 +40,8 @@ public class ChatListFragment extends ListFragment {
     private ChatListAdapter mChatListAdapter;
     private EditText inputText;
 
+    private int mUserColor;
+
     public ChatListFragment() {
         // Required empty public constructor
     }
@@ -84,6 +86,7 @@ public class ChatListFragment extends ListFragment {
     private void setupPseudo() {
         User user = Authentification.getInstance().getUser();
         mPseudo = user.getPseudo();
+        mUserColor = user.getColor();
 
     }
 
@@ -93,7 +96,7 @@ public class ChatListFragment extends ListFragment {
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
-        mChatListAdapter = new ChatListAdapter(mFirebaseRef.limit(50), getActivity(), R.layout.chat_message, mPseudo);
+        mChatListAdapter = new ChatListAdapter(mFirebaseRef.limit(50), getActivity(), R.layout.chat_message, mPseudo, mUserColor);
         listView.setAdapter(mChatListAdapter);
         mChatListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override

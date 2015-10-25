@@ -11,10 +11,13 @@ import com.gobelinscrm14.noemiediaz.backstage.R;
 public class ChatListAdapter extends FirebaseListAdapter<Chat> {
 
     private String mPseudo;
+    private int mColor;
+    private int otherColor;
 
-    public ChatListAdapter(Query ref, Activity activity, int layout, String mPseudo) {
+    public ChatListAdapter(Query ref, Activity activity, int layout, String mPseudo, int Color) {
         super(ref, Chat.class, layout, activity);
         this.mPseudo = mPseudo;
+        this.mColor = Color;
     }
 
 
@@ -26,9 +29,9 @@ public class ChatListAdapter extends FirebaseListAdapter<Chat> {
         authorText.setText(author + ": ");
         // If the message was sent by this user, color it differently
         if (author != null && author.equals(mPseudo)) {
-            authorText.setTextColor(Color.RED);
+            authorText.setTextColor(mColor);
         } else {
-            authorText.setTextColor(Color.BLUE);
+            authorText.setTextColor(Color.MAGENTA);
         }
         ((TextView) v.findViewById(R.id.message)).setText(model.getMessage());
 
