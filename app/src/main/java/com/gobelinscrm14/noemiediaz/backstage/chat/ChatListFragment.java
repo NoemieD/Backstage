@@ -1,10 +1,8 @@
 package com.gobelinscrm14.noemiediaz.backstage.chat;
 
-import android.content.Context;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.ListFragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -23,6 +21,7 @@ import com.firebase.client.ValueEventListener;
 import com.gobelinscrm14.noemiediaz.backstage.Authentification;
 import com.gobelinscrm14.noemiediaz.backstage.R;
 import com.gobelinscrm14.noemiediaz.backstage.User;
+import com.gobelinscrm14.noemiediaz.backstage.chat.adapter.ChatListAdapter;
 
 import butterknife.ButterKnife;
 

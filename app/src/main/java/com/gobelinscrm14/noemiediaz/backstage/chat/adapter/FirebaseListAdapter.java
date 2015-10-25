@@ -1,4 +1,4 @@
-package com.gobelinscrm14.noemiediaz.backstage.chat;
+package com.gobelinscrm14.noemiediaz.backstage.chat.adapter;
 
 import android.app.Activity;
 import android.util.Log;

@@ -42,11 +42,13 @@ public class UserProfilFragment extends Fragment {
 
         TextView pseudoDisplay = (TextView) view.findViewById(R.id.userPseudo);
         TextView emailDisplay = (TextView) view.findViewById(R.id.userEmail);
+        TextView colorDisplay = (TextView) view.findViewById(R.id.userColor);
 
         User user = Authentification.getInstance().getUser();
 
         pseudoDisplay.setText(user.getPseudo());
         emailDisplay.setText(user.getEmail());
+        colorDisplay.setBackgroundColor(user.getColor());
         return view;
     }
 

@@ -48,4 +48,26 @@
         android:layout_marginLeft="@dimen/marginLeftTxtView"
         android:layout_marginStart="@dimen/marginLeftTxtView"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Your Color"
+        android:id="@+id/userColorLabel"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/userEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=""
+        android:background="#fff"
+        android:id="@+id/userColor"
+        android:layout_below="@+id/userColorLabel"
+        android:layout_alignLeft="@+id/userEmail"
+        android:layout_alignStart="@+id/userEmail" />
+
 </RelativeLayout>

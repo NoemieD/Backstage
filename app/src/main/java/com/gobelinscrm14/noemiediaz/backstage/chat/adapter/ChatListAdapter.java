@@ -1,4 +1,4 @@
-package com.gobelinscrm14.noemiediaz.backstage.chat;
+package com.gobelinscrm14.noemiediaz.backstage.chat.adapter;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.firebase.client.Query;
 import com.gobelinscrm14.noemiediaz.backstage.R;
+import com.gobelinscrm14.noemiediaz.backstage.chat.Chat;
 
 public class ChatListAdapter extends FirebaseListAdapter<Chat> {
 
